@@ -47,7 +47,6 @@ public class Cafeteira {
 
     public void setLigada(boolean ligada) {
             this.ligada = ligada;
-            System.out.println("Ligada");
     }
 
 
@@ -60,6 +59,7 @@ public class Cafeteira {
     public boolean getLigada(){
         return this.ligada;
     }
+
 /// ligar() e desligar().
 ///
 /// adicionarAgua(int ml): aumenta a quantidade de água, respeitando o limite máximo.
@@ -93,18 +93,34 @@ public class Cafeteira {
                         this.setPocafe(-10);
                         System.out.println("Café Preparado!!");
 
-                    } else System.out.println("Falta Pó de Café ");
+                    }
                 }
             } else System.out.println("Falta Agua");
         }
         else System.out.println(" Cafeteira Desligada!");
 
         }
-        public int cafeDisponivel(int qntd){
-            for qntd in range:{
-                (this.getPocafe() / 10)
+    public void exibe(){
+        String msg;
+        if (getLigada()){
+            msg = "Ligada";
+        }else msg = "desligada";
+
+        System.out.println("A Cafeteira no momento esta " + msg + " E possui "+getAgua()+" Ml de agua e "+getPocafe()+" de pó de café. O numero de Cafe disponiveis é "+ cafeDisponivel());
+    }
+    public int cafeDisponivel(){
+            int cafes = 0;
+            int agua = this.getAgua();
+            int po = this.getPocafe();
+
+            for (cafes = 0; agua >= 100 && po >= 10; ) {
+                cafes++;
+                agua -= 100;
+                po -= 10;
             }
-        }
+            return cafes;
+            }
+
 
 
 
