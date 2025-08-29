@@ -34,16 +34,12 @@ public class Cafeteira {
     }
 
     public void setAgua(int agua) {
-        if ((this.agua + agua) >= 0 && (this.agua + agua) <= 2000) {
-            this.agua += agua;
-        } else System.out.println("Quantidade de agua nao pode estar abaixo ou exceder o limite");
+            this.agua = agua;
     }
 
     public void setPocafe(int pocafe) {
-        if ((this.pocafe + pocafe) >= 0 && (this.pocafe + pocafe) <= 100) {
-            this.pocafe += pocafe;
-        } else System.out.println("Quantidade de Pó de Café nao pode estar abaixo nem exceder o limite");
-    }
+        this.setPocafe(pocafe);}
+
 
     public void setLigada(boolean ligada) {
             this.ligada = ligada;
@@ -72,16 +68,24 @@ public class Cafeteira {
 ///
 
     public void reporAgua(int valor){
-         this.setAgua(valor);
-        }
+        if ((this.agua + valor) >= 0 && (this.agua + valor) <= 2000)
+            this.setAgua(valor);
+        else System.out.println("Quantidade de agua nao pode estar abaixo ou exceder o limite");
+}
+
     public void reporCafe(int valor){
-        this.setPocafe(valor);
-    }
+            if ((this.pocafe + valor) >= 0 && (this.pocafe + valor) <= 100) {
+                this.pocafe += valor;
+            } else System.out.println("Quantidade de Pó de Café nao pode estar abaixo nem exceder o limite");
+        }
+
     public void ligar(){
-        this.setLigada(true);
+        if(!this.ligada) this.setLigada(true);
+        else System.out.println("Ja esta ligada!");
     }
     public void desligar(){
-        this.setLigada(false);
+        if (this.ligada) this.setLigada(false);
+        else System.out.println("Ja esta Desligada");
     }
     public void preparar(){
         if (getLigada()){
