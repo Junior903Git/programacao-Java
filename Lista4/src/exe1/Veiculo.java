@@ -1,4 +1,5 @@
 package exe1;
+
 public class Veiculo {
     protected String placa;
     protected String modelo;
